@@ -19,7 +19,7 @@
 }
 
 .added {
-  border: 5px solid hsl(143, 86%, 45%);
+  border: 5px solid #007bff;
   background: red;
   border-radius: 5px;
   /* display: none; */

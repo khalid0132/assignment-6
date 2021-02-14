@@ -27,7 +27,6 @@ const showImages = (images) => {
 
 const getImages = (query) => {
   toggleSpinner();
-  // toggleSpinner();
   fetch(
     `https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`
   )
@@ -36,7 +35,7 @@ const getImages = (query) => {
     .catch((err) => console.log(err));
 };
 
-// ENTER key works with main search button....
+// ENTER key which works with main search button....
 document
   .getElementById("search")
   .addEventListener("keypress", function (event) {
@@ -136,14 +135,8 @@ sliderBtn.addEventListener("click", function () {
   createSlider();
 });
 
-// Spinner works
-const toggleSpinner = (show) => {
+// Spinner works as  an extra work
+const toggleSpinner = () => {
   const spinner = document.getElementById("loading_spinner");
-
   spinner.classList.toggle("d-md-none");
-  // if (show) {
-  //   spinner.classList.remove("d-md-none");
-  // } else {
-  //   spinner.classList.add("d-md-none");
-  // }
 };
