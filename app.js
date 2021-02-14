@@ -45,6 +45,7 @@ document
     }
   });
 
+
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
@@ -55,7 +56,6 @@ const selectItem = (event, img) => {
   if (item === -1) {
     sliders.push(img);
   } else {
-    // alert("Hey, Already added !");
     element.classList.remove("added");
   }
 };
@@ -93,9 +93,16 @@ const createSlider = () => {
   });
   changeSlide(0);
   timer = setInterval(function () {
+    if (duration < 0) {
+      showErrorMessage(
+        "Because of negative duration, you have to slide manually by clicking prev or next arrow"
+      );
+      clearInterval(timer);
+    }
     slideIndex++;
     changeSlide(slideIndex);
   }, duration);
+
 };
 
 // change slider index
@@ -136,8 +143,25 @@ sliderBtn.addEventListener("click", function () {
   createSlider();
 });
 
+
+// ###################################Extra works####################################
+// Enter key after putting duration for sliding 
+document
+  .getElementById("duration")
+  .addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      sliderBtn.click();
+    }
+  });
+
 // Spinner works as  an extra work
 const toggleSpinner = () => {
   const spinner = document.getElementById("loading_spinner");
   spinner.classList.toggle("d-md-none");
+};
+
+// error handle inside the searchSongs function
+const showErrorMessage = (error) => {
+  const errorTag = document.getElementById("error_message");
+  errorTag.innerText = error;
 };

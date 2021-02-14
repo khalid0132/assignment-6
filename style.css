@@ -58,7 +58,11 @@ img {
 .main {
   display: none;
 }
+#error_message{
+  color: red;
+  text-align: center;
 
+}
 @media (max-width: 767px) {
   .justify-content-around.align-items-center.mt-3.gallery-header.mb-2 {
     flex-direction: column;
